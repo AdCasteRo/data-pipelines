@@ -1,7 +1,7 @@
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-from airflow.helpers import SqlQueries
+from helpers import SqlQueries
 
 class LoadDimensionOperator(BaseOperator):
 
@@ -34,4 +34,4 @@ class LoadDimensionOperator(BaseOperator):
             {self.query}
         """
         redshift.run(insert_query)
-        self.log.info(f'Load {table} table done')
+
